@@ -1,3 +1,4 @@
+// @ts-nocheck
 export default {
   async fetch(request, env, ctx) {
     const { pathname, searchParams } = new URL(request.url);
@@ -30,10 +31,23 @@ const isAccountExpired = (expDateStr) => {
 };
 
     // 1. PUBLIC ENDPOINTS (Exempt from Admin Login Challenge)
-    if (pathname === "/proxy") {
-      const streamUrl = searchParams.get("url");
-      const user = searchParams.get("user");
-      const pass = searchParams.get("pass");
+  if (pathname === "/proxy") {
+
+  const encoded = searchParams.get("data");
+  const user = searchParams.get("user");
+  const pass = searchParams.get("pass");
+
+  if (!encoded) {
+    return new Response("Missing Stream URL", { status: 400 });
+  }
+
+  let streamUrl;
+
+  try {
+    streamUrl = atob(encoded);
+  } catch {
+    return new Response("Invalid Stream Token", { status: 400 });
+  }
 
       if (!streamUrl) return new Response("Missing Stream URL", { status: 400 });
       if (!user || !pass) return new Response("Missing Credentials", { status: 401 });
@@ -110,6 +124,41 @@ const response = await fetch(streamUrl, {
       }
     }
 
+if (pathname.startsWith("/play/")) {
+
+  const user = searchParams.get("user");
+  const pass = searchParams.get("pass");
+
+  const streamId = pathname.split("/play/")[1];
+
+  const userCheck = await db.prepare(
+    "SELECT * FROM users WHERE username = ? AND password = ? AND status='active'"
+  )
+  .bind(user, pass)
+  .first();
+
+  if (!userCheck) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  const stream = await db.prepare(
+    "SELECT * FROM streams WHERE id = ?"
+  )
+  .bind(streamId)
+  .first();
+
+  if (!stream) {
+    return new Response("Stream Not Found", { status: 404 });
+  }
+
+const response = await fetch(stream.url);
+
+return new Response(response.body, {
+  status: response.status,
+  headers: response.headers
+});
+}
+
     if (pathname === "/get_playlist") {
       const user = searchParams.get("user");
       const pass = searchParams.get("pass");
@@ -130,7 +179,7 @@ const response = await fetch(streamUrl, {
       if (proxyId === 'none') {
         isNoProxy = true; // Use the raw target URL directly without changes
       } else if (proxyId === 'default' || !proxyId) {
-        baseProxyString = `${hostUrl}/proxy?user=${encodeURIComponent(user)}&pass=${encodeURIComponent(pass)}&url=`;
+        baseProxyString = `${hostUrl}/proxy?user=${encodeURIComponent(user)}&pass=${encodeURIComponent(pass)}&data=`;
         isBuiltIn = true;
       } else {
         const proxy = await db.prepare("SELECT url FROM proxies WHERE id = ?").bind(proxyId).first();
@@ -145,18 +194,23 @@ const response = await fetch(streamUrl, {
         let targetUrl = stream.url;
         
         // Only apply proxy rules if bypass flag 'isNoProxy' is false
-        if (!isNoProxy) {
-if (isBuiltIn) {
-  targetUrl = `${baseProxyString}${stream.url}`;
-} else if (baseProxyString) {
-  let computedProxy = baseProxyString
-    .replace(/{user}/g, encodeURIComponent(user))
-    .replace(/{pass}/g, encodeURIComponent(pass));
+if (!isNoProxy) {
 
-  // remove URL encoding from stream URL
-  targetUrl = `${computedProxy}${stream.url}`;
+if (isBuiltIn) {
+  const encodedUrl = btoa(stream.url);
+  targetUrl = `${baseProxyString}${encodeURIComponent(encodedUrl)}`;
 }
-        }
+
+else if (baseProxyString) {
+let computedProxy = baseProxyString
+.replace(/{user}/g, encodeURIComponent(user))
+.replace(/{pass}/g, encodeURIComponent(pass));
+
+targetUrl = `${computedProxy}${stream.url}`;
+
+}
+}
+
         
         let category = stream.category || "";
 let logo = "";
