@@ -44,7 +44,7 @@ For a complete step-by-step installation guide and live demo, please visit the o
 <img width="1257" height="1183" alt="Proxy Configuration" src="https://github.com/user-attachments/assets/ac4bb600-4bc2-4626-b684-f1d91228ed50" />
 
 ### 4. Proxy Settings
-<img width="1257" height="1805" alt="Stream Settings" src="https://github.com/user-attachments/assets/045d10ec-331c-4fbc-a778-9bcfd94b3064" />
+<img width="1255" height="1834" alt="4" src="https://github.com/user-attachments/assets/f6687e12-743a-4ce3-9096-1b22d26aad87" />
 
 ### 5. Tools & Settings
 <img width="1255" height="3406" alt="5" src="https://github.com/user-attachments/assets/0f76cc4d-5be0-4d4f-965d-20d85c5be878" />
