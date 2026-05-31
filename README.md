@@ -47,4 +47,6 @@ For a complete step-by-step installation guide and live demo, please visit the o
 <img width="1257" height="1805" alt="Stream Settings" src="https://github.com/user-attachments/assets/045d10ec-331c-4fbc-a778-9bcfd94b3064" />
 
 ### 5. Tools & Settings
-<img width="1257" height="3406" alt="Playlist Creation" src="https://github.com/user-attachments/assets/ac43a02a-84fd-406d-8cc2-e64f73047fed" />
+<img width="1255" height="3406" alt="5" src="https://github.com/user-attachments/assets/0f76cc4d-5be0-4d4f-965d-20d85c5be878" />
+
+
