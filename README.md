@@ -1,4 +1,4 @@
-# TFMS IPTV Panel v1.0.1 (with D1 SQL & Proxy Management)
+# TFMS IPTV Panel v1.0.2 (with D1 SQL & Proxy Management)
 
 A lightweight, fast, and easy-to-deploy IPTV management panel hosted on Cloudflare Workers, utilizing Cloudflare D1 SQL for user and stream data storage.
 
@@ -32,8 +32,8 @@ For a complete step-by-step installation guide and live demo, please visit the o
 * **Masking Stream Urls:** Only the built in proxy option will mask the real stream urls, All other options will show the real stream url.
 * **Responsibility:** It is entirely your responsibility to use this application legally and responsibly.
 
-## Coming Soon - Panel v1.0.2
-* **In the next update:** Hopefully hide all stream urls in all proxies, Integrated copy playlist url & tinyurl buttons for each playlist.
+## Whats New In - Panel v1.0.2
+* **In this update:** Some url encoding if you choose the built in proxy & Dedicated update button in the settings tab.
 
 ---
 
