@@ -1,4 +1,3 @@
-// @ts-nocheck
 export default {
   async fetch(request, env, ctx) {
     const { pathname, searchParams } = new URL(request.url);
@@ -31,23 +30,10 @@ const isAccountExpired = (expDateStr) => {
 };
 
     // 1. PUBLIC ENDPOINTS (Exempt from Admin Login Challenge)
-  if (pathname === "/proxy") {
-
-  const encoded = searchParams.get("data");
-  const user = searchParams.get("user");
-  const pass = searchParams.get("pass");
-
-  if (!encoded) {
-    return new Response("Missing Stream URL", { status: 400 });
-  }
-
-  let streamUrl;
-
-  try {
-    streamUrl = atob(encoded);
-  } catch {
-    return new Response("Invalid Stream Token", { status: 400 });
-  }
+    if (pathname === "/proxy") {
+      const streamUrl = searchParams.get("url");
+      const user = searchParams.get("user");
+      const pass = searchParams.get("pass");
 
       if (!streamUrl) return new Response("Missing Stream URL", { status: 400 });
       if (!user || !pass) return new Response("Missing Credentials", { status: 401 });
@@ -124,41 +110,6 @@ const response = await fetch(streamUrl, {
       }
     }
 
-if (pathname.startsWith("/play/")) {
-
-  const user = searchParams.get("user");
-  const pass = searchParams.get("pass");
-
-  const streamId = pathname.split("/play/")[1];
-
-  const userCheck = await db.prepare(
-    "SELECT * FROM users WHERE username = ? AND password = ? AND status='active'"
-  )
-  .bind(user, pass)
-  .first();
-
-  if (!userCheck) {
-    return new Response("Unauthorized", { status: 401 });
-  }
-
-  const stream = await db.prepare(
-    "SELECT * FROM streams WHERE id = ?"
-  )
-  .bind(streamId)
-  .first();
-
-  if (!stream) {
-    return new Response("Stream Not Found", { status: 404 });
-  }
-
-const response = await fetch(stream.url);
-
-return new Response(response.body, {
-  status: response.status,
-  headers: response.headers
-});
-}
-
     if (pathname === "/get_playlist") {
       const user = searchParams.get("user");
       const pass = searchParams.get("pass");
@@ -179,7 +130,7 @@ return new Response(response.body, {
       if (proxyId === 'none') {
         isNoProxy = true; // Use the raw target URL directly without changes
       } else if (proxyId === 'default' || !proxyId) {
-        baseProxyString = `${hostUrl}/proxy?user=${encodeURIComponent(user)}&pass=${encodeURIComponent(pass)}&data=`;
+        baseProxyString = `${hostUrl}/proxy?user=${encodeURIComponent(user)}&pass=${encodeURIComponent(pass)}&url=`;
         isBuiltIn = true;
       } else {
         const proxy = await db.prepare("SELECT url FROM proxies WHERE id = ?").bind(proxyId).first();
@@ -194,23 +145,18 @@ return new Response(response.body, {
         let targetUrl = stream.url;
         
         // Only apply proxy rules if bypass flag 'isNoProxy' is false
-if (!isNoProxy) {
-
+        if (!isNoProxy) {
 if (isBuiltIn) {
-  const encodedUrl = btoa(stream.url);
-  targetUrl = `${baseProxyString}${encodeURIComponent(encodedUrl)}`;
+  targetUrl = `${baseProxyString}${stream.url}`;
+} else if (baseProxyString) {
+  let computedProxy = baseProxyString
+    .replace(/{user}/g, encodeURIComponent(user))
+    .replace(/{pass}/g, encodeURIComponent(pass));
+
+  // remove URL encoding from stream URL
+  targetUrl = `${computedProxy}${stream.url}`;
 }
-
-else if (baseProxyString) {
-let computedProxy = baseProxyString
-.replace(/{user}/g, encodeURIComponent(user))
-.replace(/{pass}/g, encodeURIComponent(pass));
-
-targetUrl = `${computedProxy}${stream.url}`;
-
-}
-}
-
+        }
         
         let category = stream.category || "";
 let logo = "";
@@ -1027,12 +973,20 @@ button:hover{background:#1d4ed8}
 <body>
 <div class="container">
 <header style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-  <h1>TFMS IPTV Panel v1.0.1</h1>
+  <h1>TFMS IPTV Panel v1.0.2</h1>
 
 <div style="display:flex; gap:10px;">
 
 <button onclick="toggleTheme()" id="themeBtn">
   🌙
+</button>
+
+<button
+  id="updatesBtn"
+  onclick="window.open('https://tfms.xyz/firestick/core/tuts/tfms-tv-panel-v1-0-1.TUT.GUIDE.html','_blank')"
+  style="display:none; background:#16a34a;"
+>
+  Updates
 </button>
 
 <button
@@ -1266,7 +1220,7 @@ button:hover{background:#1d4ed8}
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   ">
-    📢 Announcement:<br>Note this panel plays the direct links behind proxies, If you are using a 1 connection playlist as your stream source this will not work when you are serving multiple users, Always use streams from a good multi connection playlist
+    📢 Announcement:<br>Note this panel plays the direct links behind proxies, If you are using a 1 connection playlist as your stream source this will not work when you are serving multiple users, Always use streams from a good multi connection playlist<br>
   </div>
 
   <!-- ========================================= -->
@@ -1533,7 +1487,7 @@ button:hover{background:#1d4ed8}
 </div>
 
     <div class="xc-card blue" style="height: 400px; display:flex; flex-direction:column; padding:18px;">
-    <div class="xc-title">TFMS IPTV Panel v1.0.1</div>
+    <div class="xc-title">TFMS IPTV Panel v1.0.2</div>
     <div style="margin-top:12px; font-size:13px; line-height:1.6; opacity:0.95;">
     
     <b>What's New in This Release</b>
@@ -2193,7 +2147,11 @@ let downloadUrl = \`/get_playlist?user=\${encodeURIComponent(user)}&pass=\${enco
 window.open(downloadUrl, '_blank');
 }
 
+
+
+
 function switchTab(tabId, button) {
+
   document.querySelectorAll('.tab-content').forEach(tab => {
     tab.classList.remove('active');
   });
@@ -2204,7 +2162,18 @@ function switchTab(tabId, button) {
 
   document.getElementById(tabId).classList.add('active');
   button.classList.add('active');
+
+  const updatesBtn = document.getElementById('updatesBtn');
+
+  if (tabId === 'settingsTab') {
+    updatesBtn.style.display = 'inline-block';
+  } else {
+    updatesBtn.style.display = 'none';
+  }
 }
+
+
+
 
 // =========================
 // THEME SYSTEM
