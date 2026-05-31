@@ -29,7 +29,11 @@ For a complete step-by-step installation guide and live demo, please visit the o
 * **Stream Sources:** A "Get Stream" link is included in the panel to help you find streams to use.
 * **Connection Limits:** Ensure the streams you source have a generous connection limit.
 * **Direct Proxying:** This panel plays direct streams through a proxy. It **does not restream** or transcode media content.
+* **Masking Stream Urls:** Only the built in proxy option will mask the real stream urls, All other options will show the real stream url.
 * **Responsibility:** It is entirely your responsibility to use this application legally and responsibly.
+
+## Coming Soon - Panel v1.0.2
+* **In the next update:** Hopefully hide all stream urls in all proxies, Integrated copy playlist url & tinyurl buttons for each playlist.
 
 ---
 
