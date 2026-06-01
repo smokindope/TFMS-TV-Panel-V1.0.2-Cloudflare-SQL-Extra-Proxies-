@@ -1038,6 +1038,14 @@ button:hover{background:#1d4ed8}
 </button>
 
 <button
+  id="aboutBtn"
+  onclick="showAboutModal()"
+  style="display:none; background:#7c3aed;"
+>
+  About
+</button>
+
+<button
   id="updatesBtn"
   onclick="window.open('https://tfms.xyz/firestick/core/tuts/tfms-tv-panel-v1-0-1.TUT.GUIDE.html','_blank')"
   style="display:none; background:#16a34a;"
@@ -2215,12 +2223,15 @@ function switchTab(tabId, button) {
   button.classList.add('active');
 
   const updatesBtn = document.getElementById('updatesBtn');
+const aboutBtn = document.getElementById('aboutBtn');
 
-  if (tabId === 'settingsTab') {
-    updatesBtn.style.display = 'inline-block';
-  } else {
-    updatesBtn.style.display = 'none';
-  }
+if (tabId === 'settingsTab') {
+  updatesBtn.style.display = 'inline-block';
+  aboutBtn.style.display = 'inline-block';
+} else {
+  updatesBtn.style.display = 'none';
+  aboutBtn.style.display = 'none';
+}
 }
 
 // =========================
@@ -2310,6 +2321,14 @@ function saveSettings() {
   });
 
   alert('Admin settings updated');
+}
+
+function showAboutModal() {
+  document.getElementById('aboutModal').style.display = 'flex';
+}
+
+function closeAboutModal() {
+  document.getElementById('aboutModal').style.display = 'none';
 }
 
 function filterStreams() {
@@ -2456,6 +2475,54 @@ var player = new Clappr.Player({
 ">
   <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> TFMS IPTV Panel v1.0.2 - 2026
 </footer>
+
+<div id="aboutModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
+
+<div style="
+background:var(--card);
+color:var(--text);
+width:600px;
+max-width:90%;
+padding:25px;
+border-radius:10px;
+">
+
+<h2>About TFMS IPTV Panel</h2>
+
+<p>
+Version: <b>1.0.2</b>
+</p>
+
+<p>
+TFMS IPTV Panel is a lightweight Cloudflare Worker based IPTV management system featuring:
+</p>
+
+<ul>
+<li>User Line Management</li>
+<li>Playlist Generation</li>
+<li>Proxy Routing</li>
+<li>M3U Imports</li>
+<li>SQL Backup & Restore</li>
+<li>Dark Mode Support</li>
+</ul>
+
+<div style="text-align:right;">
+<button onclick="closeAboutModal()">
+Close
+</button>
+</div>
+
 </body>
 </html>
 `;
