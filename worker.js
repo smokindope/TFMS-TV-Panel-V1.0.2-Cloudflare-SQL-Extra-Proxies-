@@ -2454,7 +2454,7 @@ var player = new Clappr.Player({
   padding:20px 0;
   border-top:1px solid var(--border);
 ">
-  <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> - 2026
+  <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> TFMS IPTV Panel V1.0.2 - 2026
 </footer>
 </body>
 </html>
