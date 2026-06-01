@@ -210,7 +210,6 @@ targetUrl = `${computedProxy}${stream.url}`;
 }
 }
 
-        
         let category = stream.category || "";
 let logo = "";
 
@@ -1026,7 +1025,7 @@ button:hover{background:#1d4ed8}
 <body>
 <div class="container">
 <header style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-  <h1>TFMS IPTV Panel v1.0.1</h1>
+  <h1>TFMS IPTV Panel v1.0.2</h1>
 
 <div style="display:flex; gap:10px;">
 
@@ -1484,8 +1483,6 @@ button:hover{background:#1d4ed8}
        Open Your SQL Backup On Your PC & Copy The Contents & Paste Into The Box<br><br>If This Fails Use Cloudflare Dashboard
       </div>
     </div>
-
-
   </div>
 </div>
 </div>
@@ -1540,7 +1537,7 @@ button:hover{background:#1d4ed8}
 </div>
 
     <div class="xc-card blue" style="height: 400px; display:flex; flex-direction:column; padding:18px;">
-    <div class="xc-title">TFMS IPTV Panel v1.0.1</div>
+    <div class="xc-title">TFMS IPTV Panel v1.0.2</div>
     <div style="margin-top:12px; font-size:13px; line-height:1.6; opacity:0.95;">
     
     <b>What's New in This Release</b>
@@ -2222,9 +2219,6 @@ function switchTab(tabId, button) {
   }
 }
 
-
-
-
 // =========================
 // THEME SYSTEM
 // =========================
@@ -2447,6 +2441,17 @@ var player = new Clappr.Player({
 });
 </script>
 <div id="player" style="width:100%; height:100%;"></div>
+
+<footer style="
+  margin-top:40px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+  padding:20px 0;
+  border-top:1px solid var(--border);
+">
+  <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> - 2026
+</footer>
 </body>
 </html>
 `;
