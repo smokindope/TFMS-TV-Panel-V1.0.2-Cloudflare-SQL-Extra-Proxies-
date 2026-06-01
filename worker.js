@@ -1025,7 +1025,11 @@ button:hover{background:#1d4ed8}
 <body>
 <div class="container">
 <header style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-  <h1>TFMS IPTV Panel v1.0.2</h1>
+  <img 
+  src="https://tfms.xyz/firestick/core/images/banner.png" 
+  alt="TFMS IPTV Panel"
+  style="height:60px; object-fit:contain;"
+/>
 
 <div style="display:flex; gap:10px;">
 
