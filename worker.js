@@ -2520,7 +2520,10 @@ TFMS IPTV Panel is a lightweight Cloudflare Worker based IPTV management system 
 <li>SQL Backup & Restore</li>
 <li>Light/Dark Mode Support</li>
 <li>2 Native Media Players</li>
-<li>Use The Software Responsibly</li>
+<li>Use The Software Responsibly</li><br>
+<li>EPG is hardcoded into the playlists</li>
+<li>For stream images use the category field</li>
+<li>This is to help save your cloudflare resources</li>
 </ul>
 
 <div style="text-align:right;">
