@@ -2510,11 +2510,17 @@ TFMS IPTV Panel is a lightweight Cloudflare Worker based IPTV management system 
 
 <ul>
 <li>User Line Management</li>
+<li>Stream Management</li>
 <li>Playlist Generation</li>
-<li>Proxy Routing</li>
-<li>M3U Imports</li>
+<li>Proxy Management</li>
+<li>Tools M3U Analyzer, Url Formatter</li>
+<li>Tools 1 Click Proxy Creation</li>
+<li>Section To Get Free Streams</li>
+<li>M3U Mass Imports</li>
 <li>SQL Backup & Restore</li>
-<li>Dark Mode Support</li>
+<li>Light/Dark Mode Support</li>
+<li>2 Native Media Players</li>
+<li>Use The Software Responsibly</li>
 </ul>
 
 <div style="text-align:right;">
