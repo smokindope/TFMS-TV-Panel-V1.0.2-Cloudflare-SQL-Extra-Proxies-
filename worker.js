@@ -262,128 +262,7 @@ if (pathname === "/login" && request.method === "GET") {
 <meta charset="UTF-8">
 <title>TFMS Admin Login</title>
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui;
-  background:#0f172a;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-.login-box{
-  width:350px;
-  background:#1e293b;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-h1{
-  color:white;
-  margin-top:0;
-  margin-bottom:20px;
-  text-align:center;
-}
-
-input{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border:none;
-  border-radius:8px;
-  background:#334155;
-  color:white;
-  box-sizing:border-box;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#1d4ed8;
-}
-
-.error{
-  color:#f87171;
-  text-align:center;
-  margin-bottom:15px;
-}
-
-.split-container{
-  display:flex;
-  width:100%;
-  height:900px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  overflow:hidden;
-}
-
-.pane{
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  overflow:hidden;
-}
-
-.left-pane{
-  width:50%;
-  min-width:300px;
-}
-
-.right-pane{
-  flex:1;
-  min-width:300px;
-}
-
-.pane-header{
-  padding:10px 12px;
-  font-weight:700;
-  font-size:14px;
-  background:var(--tableHead);
-  border-bottom:1px solid var(--border);
-}
-
-.pane-frame{
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* DRAG HANDLE */
-.splitter{
-  width:6px;
-  cursor:col-resize;
-  background:transparent;
-  position:relative;
-}
-
-.splitter::before{
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:2px;
-  width:2px;
-  background:var(--border);
-  opacity:0.6;
-}
-
-.splitter:hover::before{
-  background:#2563eb;
-  opacity:1;
-}
-</style>
+<link rel="stylesheet" href="https://tfms.xyz/firestick/core/css/panel.login.css">
 </head>
 
 <body>
@@ -797,230 +676,8 @@ return Response.json({
 
 <meta charset="UTF-8">
 <title>TFMS IPTV Panel</title>
-<style>
-.settings-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:15px;
-}
+<link rel="stylesheet" href="https://tfms.xyz/firestick/core/css/panel.index.css">
 
-.settings-box{
-  background:var(--card);
-  padding:15px;
-  border-radius:8px;
-  border:1px solid var(--border);
-}
-
-/* responsive fallback */
-@media(max-width:900px){
-  .settings-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-:root{
-  --bg:#f4f5f7;--card:#fff;--text:#333;--header:#1a1f2c;
-  --border:#e2e8f0;--input:#fff;--tableHead:#edf2f7;
-}
-
-body.dark{
-  --bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--header:#020617;
-  --border:#334155;--input:#0f172a;--tableHead:#1e293b;
-}
-
-body{
-  font-family:system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  margin:0;padding:20px;
-  transition:.3s;
-}
-
-.container{
-  width:100%;
-  max-width:1400px;
-  margin:0 auto;
-}
-
-.card,
-.settings-box,
-.xc-card,
-.proxy-list,
-.mass-delete-box{
-  width:100%;
-  box-sizing:border-box;
-}
-
-.grid,
-.settings-grid,
-.xc-grid{
-  width:100%;
-  align-items:stretch;
-}
-
-header{
-  background:var(--header);
-  color:#fff;
-  padding:20px;
-  border-radius:8px;
-  margin-bottom:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-h1,h2,h3{margin:0}
-h3{font-size:16px;margin:15px 0 5px;color:#475569}
-
-.card{
-  background:var(--card);
-  padding:20px;
-  border-radius:8px;
-  box-shadow:0 2px 4px rgba(0,0,0,.05);
-  margin-bottom:20px;
-}
-
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{
-  text-align:left;
-  padding:10px;
-  border-bottom:1px solid var(--border);
-  font-size:14px;
-}
-th{background:var(--tableHead)}
-
-input,select,textarea{
-  width:100%;
-  padding:8px;
-  margin:4px 0 10px;
-  border:1px solid var(--border);
-  border-radius:4px;
-  background:var(--input);
-  color:var(--text);
-  box-sizing:border-box;
-}
-
-button{
-  background:#2563eb;
-  color:#fff;
-  border:0;
-  padding:8px 14px;
-  border-radius:4px;
-  font-weight:700;
-  cursor:pointer;
-}
-button:hover{background:#1d4ed8}
-
-.btn-danger{background:#dc2626}
-.btn-danger:hover{background:#b91c1c}
-.btn-success{background:#16a34a}
-
-.action-btns button{padding:4px 8px;font-size:12px;margin-right:4px}
-.flex-actions{display:flex;gap:4px;align-items:center}
-
-.tabs{display:flex;gap:10px;margin-bottom:20px}
-.tab-btn{
-  background:var(--tableHead);
-  color:var(--text);
-  border:0;
-  padding:10px 18px;
-  border-radius:6px;
-  font-weight:700;
-  cursor:pointer;
-}
-.tab-btn.active{background:#2563eb;color:#fff}
-
-.tab-content{display:none}
-.tab-content.active{display:block}
-
-.proxy-list,.mass-delete-box{
-  margin-top:15px;
-  padding:10px;
-  border-radius:6px;
-  background:var(--card);
-  border:1px solid var(--border);
-}
-
-.proxy-item{
-  display:flex;
-  justify-content:space-between;
-  padding:6px 0;
-  border-bottom:1px solid var(--border);
-  font-size:13px;
-}
-.proxy-item:last-child{border:0}
-
-.badge{
-  display:inline-block;
-  padding:2px 6px;
-  border-radius:4px;
-  font-size:11px;
-  font-weight:700;
-  color:#fff;
-  background:#64748b;
-}
-.badge-alert{background:#dc2626}
-.badge-ok{background:#16a34a}
-.badge-expired{text-decoration:line-through}
-
-.xc-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:15px;
-}
-
-.xc-card{
-  padding:18px;
-  border-radius:10px;
-  color:#fff;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-
-.xc-title{font-size:13px;opacity:.85;letter-spacing:.5px}
-.xc-value{font-size:28px;font-weight:700;margin-top:8px}
-.xc-sub{font-size:11px;opacity:.7;margin-top:5px}
-
-.xc-card.blue{background:linear-gradient(135deg,#2563eb,#1e40af)}
-.xc-card.green{background:linear-gradient(135deg,#16a34a,#065f46)}
-.xc-card.purple{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
-.xc-card.orange{background:linear-gradient(135deg,#f97316,#c2410c)}
-
-@media(max-width:900px){.xc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.xc-grid{grid-template-columns:1fr}}
-
-.quick-btn{
-  background:#2563eb;
-  color:#fff;
-  border:0;
-  padding:12px;
-  border-radius:8px;
-  font-weight:700;
-  cursor:pointer;
-  transition:.2s;
-}
-.quick-btn:hover{background:#1d4ed8;transform:translateY(-1px)}
-
-@media(max-width:1200px){
-  .settings-grid,
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .xc-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:700px){
-  .xc-grid{
-    grid-template-columns:1fr;
-  }
-}
-</style>
 </head>
 <body>
 <div class="container">
@@ -1262,10 +919,76 @@ button:hover{background:#1d4ed8}
         "
         loading="lazy"
       ></iframe>
+</div>
 
+
+
+
+<!-- ========================================= -->
+<!-- CUSTOM RESOURCE VIEWER (TOOLS STYLE SPLIT) -->
+<!-- ========================================= -->
+
+<div class="card">
+
+  <h2>Install this <a href="https://tfms.xyz/firestick/core/tuts/proxy.with.pass.html" target="_blank"><button>PROXY</button></a></h2>
+Enter the proxy url into the box below (Protected proxy with pass & expiry tokens)
+  <hr>
+
+  <div class="settings-box">
+
+    <div style="display:flex; gap:0px; margin-bottom:0px;">
+      <input
+        type="text"
+        id="customIframeUrl"
+        placeholder="https://example.com"
+        style="flex:1;"
+      >
+      <button onclick="loadCustomIframe()">
+        Load Site
+      </button>
     </div>
 
+    <iframe
+      id="customIframe"
+      src="about:blank"
+      style="width:100%; height:800px; border:0; background:white;"
+    ></iframe>
+
   </div>
+
+</div>
+
+    <!-- RIGHT PANEL (NEW) -->
+<div class="card">
+
+  <h2>Install this <a href="https://tfms.xyz/firestick/core/tuts/proxy.with.no.pass.html" target="_blank"><button>PROXY</button></a></h2>
+Enter the proxy url into the box below (Open proxy with expiry tokens)
+  <hr>
+
+  <div class="settings-box">
+
+    <div style="display:flex; gap:0px; margin-bottom:0px;">
+      <input
+        type="text"
+        id="customIframeUrl2"
+        placeholder="https://example.com"
+        style="flex:1;"
+      >
+      <button onclick="loadCustomIframe2()">
+        Load Site
+      </button>
+    </div>
+
+    <iframe
+      id="customIframe2"
+      src="about:blank"
+      style="width:100%; height:800px; border:0; background:white;"
+    ></iframe>
+
+  </div>
+
+</div>
+</div>
 
 </div>
 </div>
@@ -1498,10 +1221,6 @@ button:hover{background:#1d4ed8}
   </div>
 </div>
 </div>
-</div>
-    </div>
-  </div>
-</div>
 
 <div id="overviewTab" class="tab-content active">
   <div class="card">
@@ -1549,7 +1268,7 @@ button:hover{background:#1d4ed8}
 </div>
 
     <div class="xc-card blue" style="height: 400px; display:flex; flex-direction:column; padding:18px;">
-    <div class="xc-title">TFMS IPTV Panel v1.0.2</div>
+    <div class="xc-title">TFMS IPTV Panel v1.0.3</div>
     <div style="margin-top:12px; font-size:13px; line-height:1.6; opacity:0.95;">
     
     <b>What's New in This Release</b>
@@ -1981,6 +1700,51 @@ button:hover{background:#1d4ed8}
 </div>
 
 <script>
+
+function loadCustomIframe() {
+  const url = document.getElementById('customIframeUrl').value.trim();
+
+  if (!url) return alert('Enter a URL');
+
+  let finalUrl = url;
+
+  if (!finalUrl.startsWith('http://') &&
+      !finalUrl.startsWith('https://')) {
+    finalUrl = 'https://' + finalUrl;
+  }
+
+  localStorage.setItem('customIframeUrl', finalUrl);
+  document.getElementById('customIframe').src = finalUrl;
+}
+
+function loadCustomIframe2() {
+  let url = document.getElementById('customIframeUrl2').value.trim();
+  if (!url) return alert('Enter a URL');
+
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    url = 'https://' + url;
+  }
+
+  localStorage.setItem('customIframeUrl2', url);
+  document.getElementById('customIframe2').src = url;
+}
+
+window.addEventListener('load', () => {
+  const saved2 = localStorage.getItem('customIframeUrl2');
+  if (saved2) {
+    document.getElementById('customIframeUrl2').value = saved2;
+    document.getElementById('customIframe2').src = saved2;
+  }
+});
+
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('customIframeUrl');
+
+  if (saved) {
+    document.getElementById('customIframeUrl').value = saved;
+    document.getElementById('customIframe').src = saved;
+  }
+});
 const builtInProxy = { id: 'default', name: 'Built In Proxy', url: '' };
 const noProxyOption = { id: 'none', name: 'Use Direct Url or Choose Proxy', url: '' };
 
@@ -2473,7 +2237,7 @@ var player = new Clappr.Player({
   padding:20px 0;
   border-top:1px solid var(--border);
 ">
-  <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> TFMS IPTV Panel v1.0.2 - 2026
+  <a href="https://forum.tfms.xyz" target="_blank">Forum.tfms</a> TFMS IPTV Panel v1.0.3 - 2026
 </footer>
 
 <div id="aboutModal" style="
