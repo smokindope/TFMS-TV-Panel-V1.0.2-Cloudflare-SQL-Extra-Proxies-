@@ -49,7 +49,7 @@ For a complete step-by-step installation guide and live demo, please visit the o
 <img width="1257" height="1183" alt="Proxy Configuration" src="https://github.com/user-attachments/assets/ac4bb600-4bc2-4626-b684-f1d91228ed50" />
 
 ### 4. Proxy Settings
-<img width="1351" height="3108" alt="4" src="https://github.com/user-attachments/assets/b2ca5efe-fb2c-47dd-99c7-e8e55da5d7ce" />
+<img width="1351" height="3108" alt="4" src="https://github.com/user-attachments/assets/c00ed93c-c682-4748-ad31-565296b6ae42" />
 
 ### 5. Tools & Settings
 <img width="1255" height="3406" alt="5" src="https://github.com/user-attachments/assets/0f76cc4d-5be0-4d4f-965d-20d85c5be878" />
