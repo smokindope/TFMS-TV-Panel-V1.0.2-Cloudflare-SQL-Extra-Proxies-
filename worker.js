@@ -2265,7 +2265,7 @@ border-radius:10px;
 <h2>About TFMS IPTV Panel</h2>
 
 <p>
-Version: <b>1.0.2</b>
+Version: <b>1.0.3</b>
 </p>
 
 <p>
