@@ -1273,23 +1273,23 @@ Enter the proxy url into the box below (Open proxy with expiry tokens)
     
     <b>What's New in This Release</b>
     <ul style="margin:8px 0 0 18px; padding:0;">
+      <li>Built in proxy urls encoded</li>
+      <li>2 new proxy options</li>
+      <li>With expire tokens</li>
       <li>New dashboard tabs added</li>
       <li>Sticky System Notes</li>
       <li>D1 SQL Backup & Restore function</li>
       <li>Quick Links Panel</li>
-      <li>Night Mode Theme support</li>
-      <li>M3U Bulk Import fixed</li>
       <li>Hardcoded EPG TV guide</li>
       <li>Choose Category in Mass Import</li>
-      <li>Settings Page</li>
       <li>Some UI Updates</li>
     </ul>
 
     <div style="margin-top:12px;">
       <b>Coming Next</b>
       <div style="margin-top:6px; opacity:0.9;">
-        • User-Agent & Referer Support<br>
-        • Encoded / optimized stream handling<br>
+        • Big code clean up<br>
+        • Anything else i can think of<br>
       </div>
     </div>
   </div>
