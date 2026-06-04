@@ -52,6 +52,6 @@ For a complete step-by-step installation guide and live demo, please visit the o
 ### 5. Tools & Settings
 <img width="1255" height="3406" alt="5" src="https://github.com/user-attachments/assets/0f76cc4d-5be0-4d4f-965d-20d85c5be878" />
 
-### 6. Tools & Settings
+### 6. Headless Browser
 <img width="1351" height="1329" alt="6" src="https://github.com/user-attachments/assets/31415f76-cbf1-4c60-b535-27e9d55e7659" />
 
