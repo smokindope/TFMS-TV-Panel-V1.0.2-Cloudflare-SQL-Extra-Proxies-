@@ -1035,7 +1035,8 @@ Enter the proxy url into the box below (Open proxy with expiry tokens)
           <b>Expiration Date</b><br>Accounts automatically stop working after 23:59 on selected date<br>
           <b>Status Types</b><br>Active = User can stream normally<br>Disabled = Account blocked manually<br>
           <b>Playlist Downloads</b><br>Generate playlists using direct streams, built-in proxy, or custom proxies<br>
-          <b>Hardcoded EPG</b><br>TV-Guide is hardcoded your iptv app should pick it up
+          <b>Hardcoded EPG</b><br>TV-Guide is hardcoded your iptv app should pick it up<br>
+          <b>NOTES</b><br>Only using the built in proxy will hide the real stream url this is to avoid double proxying and helps avoid cloudflares TOS
         </div>
       </div>
     </div>
