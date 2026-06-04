@@ -1031,10 +1031,16 @@ When created enter the proxy url into the box below (with tokens & NO pass)
 
 <div id="browserTab" class="tab-content">
   <div class="card">
-    <h2>Headless Browser For Extracting Streams From Embed Pages</h2>
-    <hr>
+    <h2>Custom Browser One Click Huggingface Deploy <a href="https://huggingface.co/spaces/paul9876587/browser2?duplicate=true" target="_blank"><button>Click Here</button></a></h2>
+        Click Duplicate Space then paste your proxy url into the box below
+<hr>
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+      <input type="text" id="browserIframeUrl" placeholder="https://example.com" style="flex:1;">
+      <button onclick="loadBrowserIframe()">Load Site</button>
+    </div>
     <iframe
-      src="https://paul9876587-browser2.hf.space"
+      id="browserIframe"
+      src="about:blank"
       style="width:100%; height:900px; border:1px solid var(--border); border-radius:8px; background:white;"
       loading="lazy"
       allow="clipboard-read; clipboard-write; fullscreen"
@@ -2582,6 +2588,13 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+
+function loadBrowserIframe() {
+  const url = document.getElementById('browserIframeUrl').value.trim();
+  if (!url) return;
+  document.getElementById('browserIframe').src = url;
+}
 
 </script>
 `;
