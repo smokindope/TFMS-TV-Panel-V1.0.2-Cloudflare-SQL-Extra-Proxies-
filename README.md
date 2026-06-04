@@ -1,16 +1,18 @@
-# TFMS IPTV Panel v1.0.4 (with D1 SQL & Proxy Management)
+# TFMS IPTV Panel v1.0.5 (with D1 SQL & Proxy Management)
 
 A lightweight, fast, and easy-to-deploy IPTV management panel hosted on Cloudflare Workers, utilizing Cloudflare D1 SQL for user and stream data storage.
 
 ## 📖 Installation & Demo
 For a complete step-by-step installation guide and live demo, please visit the official tutorial link:<br>
-👉 ** <a href="https://tfms.xyz/firestick/core/tuts/tfms-tv-panel-v1-0-1.TUT.GUIDE.html" target="_blank">[Full Installation Guide & Demo]</a><br><br>Demo Login Info <strong>Username: admin | Password: SecretPassword123</strong>
-
+👉 ** <a href="https://tfms.xyz/firestick/core/tuts/tfms-tv-panel-v1-0-1.TUT.GUIDE.html" target="_blank">[Full Installation Guide & Demo]</a><br><br>Demo Login Info <strong>Username: admin | Password: SecretPassword123</strong><br><br>
+Or Use One Click Cloudflare Deploy [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/smokindope/panel-v1-0-5-one-click-deploy)
 ---
 
 ## ⚡ Features
 
 * **Cloudflare Hosted:** Runs entirely on Cloudflare Workers using standard `.js`.
+* **New VOD Section:** New dedicated vod section with TMDB auto populate.
+* **Stream & VOD Images:** There is now a separate box for adding images to streams & vod.
 * **D1 SQL Database:** Fast, secure storage for user details, streams, and proxies.
 * **Proxy Management:** Dedicated section to easily add, create, and scale more proxies.
 * **Hide Original Url:** Selecting the built in proxy option in userlines will hide the original stream urls.
