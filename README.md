@@ -1,4 +1,4 @@
-# TFMS IPTV Panel v1.0.3 (with D1 SQL & Proxy Management)
+# TFMS IPTV Panel v1.0.4 (with D1 SQL & Proxy Management)
 
 A lightweight, fast, and easy-to-deploy IPTV management panel hosted on Cloudflare Workers, utilizing Cloudflare D1 SQL for user and stream data storage.
 
@@ -21,6 +21,7 @@ For a complete step-by-step installation guide and live demo, please visit the o
 * **Custom Playlists:** Create personal, tailored playlists for any user.
 * **Access Control:** Set explicit playlist connection limits and expiration dates.
 * **Link Formatter & Analyzer:** Check playlist status & Convert from .ts to .m3u8 or vice versa.
+*  **Lots More Stuff:** Headless browser, tinyurl button, user-agent & referer
 ---
 
 ## ⚠️ Important Information
@@ -32,9 +33,6 @@ For a complete step-by-step installation guide and live demo, please visit the o
 * **Masking Stream Urls:** Only the built in proxy option will mask the real stream urls, All other options will show the real stream url.
 * **Responsibility:** It is entirely your responsibility to use this application legally and responsibly.
 
-## Whats New In - Panel v1.0.3
-* **In this update:** Some url encoding if you choose the built in proxy & Dedicated update button in the settings tab.
-
 ---
 
 ## 📸 Screenshots
@@ -43,10 +41,10 @@ For a complete step-by-step installation guide and live demo, please visit the o
 <img width="1257" height="807" alt="Dashboard Overview" src="https://github.com/user-attachments/assets/949b2333-2b1d-437d-adba-a994a9100425" />
 
 ### 2. User Management
-<img width="1257" height="845" alt="User Management" src="https://github.com/user-attachments/assets/9ae5a4fe-2bc1-45c9-a519-4780d83cb37b" />
+<img width="1351" height="1018" alt="2" src="https://github.com/user-attachments/assets/e0ec1c8f-d74a-4afe-b6c9-1008c32b4a89" />
 
 ### 3. Streams & VOD
-<img width="1257" height="1183" alt="Proxy Configuration" src="https://github.com/user-attachments/assets/ac4bb600-4bc2-4626-b684-f1d91228ed50" />
+<img width="1351" height="1374" alt="3" src="https://github.com/user-attachments/assets/92d86422-9c92-43eb-abdb-8b8bfccecc78" />
 
 ### 4. Proxy Settings
 <img width="1351" height="3108" alt="4" src="https://github.com/user-attachments/assets/c00ed93c-c682-4748-ad31-565296b6ae42" />
@@ -54,4 +52,6 @@ For a complete step-by-step installation guide and live demo, please visit the o
 ### 5. Tools & Settings
 <img width="1255" height="3406" alt="5" src="https://github.com/user-attachments/assets/0f76cc4d-5be0-4d4f-965d-20d85c5be878" />
 
+### 6. Tools & Settings
+<img width="1351" height="1329" alt="6" src="https://github.com/user-attachments/assets/31415f76-cbf1-4c60-b535-27e9d55e7659" />
 
