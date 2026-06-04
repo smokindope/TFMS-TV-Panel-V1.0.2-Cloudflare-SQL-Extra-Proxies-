@@ -2,7 +2,7 @@
 
 A lightweight, fast, and easy-to-deploy IPTV management panel hosted on Cloudflare Workers, utilizing Cloudflare D1 SQL for user and stream data storage.
 
-## 📖 Installation & Demo - One Click Cloudflare Deploy [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/smokindope/panel-v1-0-5-one-click-deploy)
+## 📖 Installation - One Click Cloudflare Deploy [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/smokindope/panel-v1-0-5-one-click-deploy)
 For manual deploy see the step-by-step installation guide and live demo, please visit the official tutorial link:<br>
 👉 ** <a href="https://tfms.xyz/firestick/core/tuts/tfms-tv-panel-v1-0-1.TUT.GUIDE.html" target="_blank">[Full Installation Guide & Demo]</a><br><br>Demo Login Info <strong>Username: admin | Password: SecretPassword123</strong><br><br>
 
