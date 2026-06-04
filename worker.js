@@ -1032,7 +1032,7 @@ When created enter the proxy url into the box below (with tokens & NO pass)
 <div id="browserTab" class="tab-content">
   <div class="card">
     <h2>Custom Browser One Click Huggingface Deploy <a href="https://huggingface.co/spaces/paul9876587/browser2?duplicate=true" target="_blank"><button>Click Here</button></a></h2>
-        Click Duplicate Space then paste your proxy url into the box below
+        Click Duplicate Space then paste your proxy url into the box below then click load site
 <hr>
     <div style="display:flex; gap:10px; margin-bottom:10px;">
       <input type="text" id="browserIframeUrl" placeholder="https://example.com" style="flex:1;">
@@ -2587,13 +2587,44 @@ window.addEventListener('load', () => {
       switchTab(savedTab, tabBtn);
     }
   }
+
+  restoreBrowserIframe();
 });
 
+const BROWSER_IFRAME_STORAGE_KEY = 'browserIframeUrl';
+
+function normalizeBrowserIframeUrl(url) {
+  let cleanUrl = String(url || '').trim();
+  if (!cleanUrl) return '';
+  if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
+    cleanUrl = 'https://' + cleanUrl;
+  }
+  return cleanUrl;
+}
+
+function restoreBrowserIframe() {
+  const input = document.getElementById('browserIframeUrl');
+  const iframe = document.getElementById('browserIframe');
+  if (!input || !iframe) return;
+
+  const savedUrl = normalizeBrowserIframeUrl(localStorage.getItem(BROWSER_IFRAME_STORAGE_KEY));
+  if (!savedUrl) return;
+
+  input.value = savedUrl;
+  iframe.src = savedUrl;
+}
 
 function loadBrowserIframe() {
-  const url = document.getElementById('browserIframeUrl').value.trim();
+  const input = document.getElementById('browserIframeUrl');
+  const iframe = document.getElementById('browserIframe');
+  if (!input || !iframe) return;
+
+  const url = normalizeBrowserIframeUrl(input.value);
   if (!url) return;
-  document.getElementById('browserIframe').src = url;
+
+  input.value = url;
+  iframe.src = url;
+  localStorage.setItem(BROWSER_IFRAME_STORAGE_KEY, url);
 }
 
 </script>
