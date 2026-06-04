@@ -1031,8 +1031,8 @@ When created enter the proxy url into the box below (with tokens & NO pass)
 
 <div id="browserTab" class="tab-content">
   <div class="card">
-    <h2>Custom Browser One Click Huggingface Deploy <a href="https://huggingface.co/spaces/paul9876587/browser2?duplicate=true" target="_blank"><button>Click Here</button></a></h2>
-        Click Duplicate Space then paste your proxy url into the box below then click load site
+    <h2>Custom Headless Browser One Click Huggingface Deploy <a href="https://huggingface.co/spaces/paul9876587/browser2?duplicate=true" target="_blank"><button>Click Here</button></a></h2>
+        Click Duplicate Space then paste your proxy url into the box below then click load site<br>Retrieve streams & referers from embed pages
 <hr>
     <div style="display:flex; gap:10px; margin-bottom:10px;">
       <input type="text" id="browserIframeUrl" placeholder="https://example.com" style="flex:1;">
