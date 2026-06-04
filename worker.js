@@ -986,7 +986,7 @@ Enter the proxy url into the box below (Open proxy with expiry tokens)
 
 <div class="xc-card green" style="height:400px; display:flex; flex-direction:column; justify-content:center; gap:12px;">
 
-<button class="quick-btn" onclick="window.open('#','_blank')">🌐 Spare</button>
+<button class="quick-btn" onclick="window.open('https://github.com/tv-logo/tv-logos/tree/main/countries','_blank')">🌐 TV Logos Github</button>
 <button class="quick-btn" onclick="window.open('https://tfms.xyz/firestick/mark/webtv.html','_blank')">🌐 Live Web-TV</button>
 <button class="quick-btn" onclick="window.open('https://epgshare01.online/','_blank')">🌐 TV-Guides</button>
 <button class="quick-btn" onclick="window.open('https://videodownloader.site/','_blank')">🌐 Movie Downloader</button>
